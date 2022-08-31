@@ -1,0 +1,15 @@
+.card {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   width: 15rem;
+   text-align: center;
+}
+
+.card h4 {
+   margin-bottom: 1rem;
+}
+
+.card img {
+   margin-bottom: 1rem;
+}

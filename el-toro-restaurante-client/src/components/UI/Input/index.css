@@ -1,0 +1,15 @@
+.input input {
+   display: inline-block;
+   border: 1px solid #222222;
+   padding: 0.5rem;
+   margin-top: 0.5rem;
+}
+.input label {
+   display: block;
+   color: #222;
+   margin-top: 1rem;
+}
+.input .error-message {
+   margin-top: 0.5rem;
+   color: #991f1f;
+}

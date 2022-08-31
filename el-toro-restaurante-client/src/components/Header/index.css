@@ -1,0 +1,30 @@
+.nav-bar {
+   width: 100vw;
+   padding: 1rem 0;
+   text-align: center;
+   background-color: #fecf0a;
+}
+
+.nav-bar ul {
+   display: flex;
+   justify-content: space-between;
+   flex-direction: row-reverse;
+   margin: 0 auto;
+   width: 90%;
+   max-width: 1200px;
+}
+
+.nav-bar ul li {
+   display: inline-block;
+}
+
+.nav-bar a {
+   font-size: 1.2rem;
+   font-weight: bolder;
+   letter-spacing: 1px;
+   transition: color 0.3s ease-out;
+}
+
+.nav-bar a:hover {
+   color: aqua;
+}

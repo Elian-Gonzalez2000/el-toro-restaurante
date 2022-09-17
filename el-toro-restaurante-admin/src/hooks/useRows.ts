@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 
-export default function useRows(data) {
+export default function useRows(data: any) {
    const rows = useMemo(
       () =>
-         data.map((el, index) => {
+         data.map((el: object, index: number) => {
             return {
                nombre: el.nombre,
                apellido: el.apellido,

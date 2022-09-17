@@ -26,7 +26,6 @@ function Login() {
       const user = {
          email,
          password,
-         role: "admin",
       };
       console.log(user);
       dispatch(login(user));

@@ -36,7 +36,7 @@ const ProductModel = sequelize.define(
          allowNull: true,
       },
       category: {
-         type: DataTypes.STRING,
+         type: DataTypes.ENUM("hotdog", "hamburger", "pizzas", "arepas"),
          allowNull: false,
       },
       createdBy: {

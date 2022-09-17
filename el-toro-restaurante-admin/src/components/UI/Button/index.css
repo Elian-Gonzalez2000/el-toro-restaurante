@@ -17,3 +17,22 @@ button a {
    padding: 0.5rem 0.75rem;
    transition: 0.3s all ease-in-out;
 }
+
+.return {
+   position: absolute;
+   top: 0;
+   right: 0;
+}
+
+.return a {
+   color: var(--white-color);
+}
+
+/* .return:hover {
+   color: #0b4fce;
+   background-color: var(--white-color);
+   border: thin solid var(--first-color);
+}
+.return:hover a {
+   color: var(--first-color);
+} */

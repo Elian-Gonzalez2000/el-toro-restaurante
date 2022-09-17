@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useTable, useRowSelect } from "react-table";
-import useRows from "../../hooks/useRowsUsers";
-import useColumns from "../../hooks/useColumnsUsers";
+import useRows from "../../hooks/useRows";
+import useColumns from "../../hooks/useColumns";
 import Layout from "../../components/Layout";
 import axios from "../../helpers/axios";
 import Button from "../../components/UI/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { getInitialData, isUserLoggedIn } from "../../actions";
 import Swal from "sweetalert2";
+
 import "./index.css";
+import Container from "../../components/UI/Container";
+import { getAllUsers } from "../../actions";
 
 const IndeterminateCheckbox = React.forwardRef(
    ({ indeterminate, ...rest }, ref) => {
       const defaultRef = React.useRef();
-      const resolvedRef = ref || defaultRef;
+      const resolvedRef: any = ref || defaultRef;
 
       //console.log(resolvedRef);
       React.useEffect(() => {
@@ -29,29 +34,31 @@ const IndeterminateCheckbox = React.forwardRef(
 function Users() {
    const [usersData, setUsersData] = useState([]);
    const columns = useColumns();
-   //let data = useRows([]);
+   const users = useSelector((state: any) => state.user);
+   const userLogin = useSelector((state: any) => state.auth);
+   const dispatch = useDispatch();
 
+   //console.log(users);
+   //let data = useRows([]);
    useEffect(() => {
-      axios
-         .get("/admin/getallusers")
-         .then((res) => {
-            //console.log(res.data);
-            setUsersData(
-               res.data.map((user) => {
-                  return {
-                     nombre: user.firstName,
-                     apellido: user.lastName,
-                     cedula: user.identificationCard,
-                     email: user.email,
-                     role: user.role,
-                  };
-               })
-            );
-         })
-         .catch((error) => {
-            console.log(error.response.data);
-         });
+      dispatch(getAllUsers());
    }, []);
+   useEffect(() => {
+      if (users.users) {
+         setUsersData(
+            users.users.map((user: any) => {
+               return {
+                  nombre: user.firstName,
+                  apellido: user.lastName,
+                  cedula: user.identificationCard,
+                  email: user.email,
+                  role: user.role,
+               };
+            })
+         );
+      }
+      //console.log(usersData);
+   }, [users.users]);
 
    const table = useTable(
       { columns, data: usersData && usersData },
@@ -59,24 +66,26 @@ function Users() {
       (hooks: any) => {
          hooks.visibleColumns.push((columns: any) => [
             // Let's make a column for selection
-            {
-               id: "selection",
-               // The header can use the table's getToggleAllRowsSelectedProps method
-               // to render a checkbox
+            userLogin.user?.role === "superadmin"
+               ? {
+                    id: "selection",
+                    // The header can use the table's getToggleAllRowsSelectedProps method
+                    // to render a checkbox
 
-               // The cell can use the individual row's getToggleRowSelectedProps method
-               // to the render a checkbox
-               Cell: ({ row }: any) => {
-                  //console.log(row);
-                  return (
-                     <div>
-                        <IndeterminateCheckbox
-                           {...row.getToggleRowSelectedProps()}
-                        />
-                     </div>
-                  );
-               },
-            },
+                    // The cell can use the individual row's getToggleRowSelectedProps method
+                    // to the render a checkbox
+                    Cell: ({ row }: any) => {
+                       //console.log(row);
+                       return (
+                          <div>
+                             <IndeterminateCheckbox
+                                {...row.getToggleRowSelectedProps()}
+                             />
+                          </div>
+                       );
+                    },
+                 }
+               : {},
             ...columns,
          ]);
       }
@@ -137,18 +146,26 @@ function Users() {
 
    return (
       <Layout>
-         <div className="users">
-            <Button
-               url={"/usuarios-registrados/crear-usuarios"}
-               type={undefined}
-               onClick={undefined}
-               className={""}
-            >
-               Crear usuario
-            </Button>
-            {selectedFlatRows && selectedFlatRows.length === 1 ? (
+         <Container className="users">
+            <h2 style={{ textAlign: "center", margin: "2rem auto" }}>
+               Usuarios Registrados
+            </h2>
+            {userLogin.user?.role === "superadmin" ? (
                <Button
-                  url={`/usuarios-registrados/editar-usuario/${selectedFlatRows[0].original.email}`}
+                  url={"/usuarios/crear-usuario"}
+                  type={undefined}
+                  onClick={undefined}
+                  className={""}
+               >
+                  Crear usuario
+               </Button>
+            ) : null}
+
+            {userLogin.user?.role === "superadmin" &&
+            selectedFlatRows &&
+            selectedFlatRows.length === 1 ? (
+               <Button
+                  url={`/usuarios/editar/${selectedFlatRows[0].original.email}`}
                   type={undefined}
                   onClick={undefined}
                   className={""}
@@ -156,7 +173,9 @@ function Users() {
                   Editar usuario
                </Button>
             ) : null}
-            {selectedFlatRows && selectedFlatRows.length === 1 ? (
+            {userLogin.user?.role === "superadmin" &&
+            selectedFlatRows &&
+            selectedFlatRows.length === 1 ? (
                <Button
                   url={``}
                   onClick={userDelete}
@@ -220,7 +239,7 @@ function Users() {
                   }
                </tbody>
             </table>
-         </div>
+         </Container>
       </Layout>
    );
 }

@@ -11,18 +11,28 @@ interface Body {
    productPicture: string | undefined;
    createdBy: string | undefined;
 }
+
+export const getAllProducts = async (req: any, res: any) => {
+   try {
+      const product = await ProductModel.findAll();
+      if (product) {
+         //console.log(activities);
+         res.status(200).json([...product]);
+      }
+   } catch (error) {
+      console.log(error);
+      res.status(400).json({
+         message: "Algo salio mal",
+         data: error,
+      });
+   }
+};
+
 export const createProduct = async (req: any, res: any) => {
    try {
       //res.status(201).json({ message: "listoo" });
-      const {
-         name,
-         price,
-         quantity,
-         description,
-         category,
-         productPicture,
-         createdBy,
-      }: Body = req.body;
+      const { name, price, quantity, description, category, createdBy }: Body =
+         req.body;
 
       if (!name)
          return res.json(406).status({ message: "El nombre es obligatorio" });
@@ -40,13 +50,31 @@ export const createProduct = async (req: any, res: any) => {
             .json(406)
             .status({ message: "La categoria es obligatoria" });
 
+      let productPictures = [];
+
+      if (req.files && req.files.length > 0) {
+         productPictures = req.files.map((file: any) => {
+            return { img: file.filename };
+         });
+      } else {
+         return res
+            .status(406)
+            .json({ message: "Debe ingresar imagenes de las actividades" });
+      }
+
+      //console.log("product", productPictures);
+      let stringProductPictures = "";
+      productPictures.forEach((el: any) => {
+         return (stringProductPictures = `${stringProductPictures}${el.img};`);
+      });
+
       const product = await ProductModel.create({
          name,
          slug: slugify(name).toLowerCase(),
          price,
          quantity,
          description,
-         productPicture,
+         productPicture: stringProductPictures,
          category,
          createdBy,
       });

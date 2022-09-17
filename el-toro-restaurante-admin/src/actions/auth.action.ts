@@ -8,7 +8,7 @@ export const login = (user: any) => {
          const res = await axios.post("/admin/signin", {
             ...user,
          });
-         console.log(res);
+         //console.log(res);
          if (res.status === 200) {
             /* Take the token and user from the response, then save in localStorage with setItem, this permite use the token easly in the application */
             const user = res.data;
@@ -33,7 +33,6 @@ export const login = (user: any) => {
 export const isUserLoggedIn = () => {
    return async (dispatch: any) => {
       const user = JSON.parse(localStorage.getItem("user")!);
-
       if (user) {
          dispatch({
             type: authConstants.LOGIN_SUCCESS,
@@ -50,7 +49,7 @@ export const isUserLoggedIn = () => {
 
 export const signout = () => {
    return async (dispatch: any) => {
-      dispatch({ type: authConstants.LOGOUT_REQUEST });
+      //dispatch({ type: authConstants.LOGOUT_REQUEST });
       //const res = await axios.post("/admin/signout");
 
       localStorage.clear();

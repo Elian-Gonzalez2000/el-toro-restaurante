@@ -2,10 +2,15 @@ import { authConstants } from "../actions/constants";
 
 const initialState = {
    user: {
+      id: "",
       firstName: "",
       lastName: "",
+      fullName: "",
+      identificationCard: "",
       email: "",
-      picture: "",
+      role: "",
+      createdAt: "",
+      updatedAt: "",
    },
    authenticate: false,
    authenticating: false,

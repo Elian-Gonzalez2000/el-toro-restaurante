@@ -40,7 +40,7 @@ const AuthModel = sequelize.define(
          allowNull: false,
       },
       role: {
-         type: DataTypes.ENUM("admin"),
+         type: DataTypes.ENUM("admin", "superadmin"),
          default: "admin",
       },
    },

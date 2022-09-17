@@ -5,7 +5,7 @@ export const getAllUsers = async (req: any, res: any) => {
       const users = await AuthModel.findAll();
       if (users) {
          //console.log(activities);
-         res.status(200).json(users);
+         res.status(200).json([...users]);
       }
    } catch (error) {
       console.log(error);
@@ -45,7 +45,7 @@ export const getUserByName = async (req: any, res: any) => {
 
 export const signin = async (req: any, res: any) => {
    try {
-      const { email, password, role } = req.body;
+      const { email, password } = req.body;
       //console.log(email, password);
 
       if (!email) {
@@ -59,15 +59,11 @@ export const signin = async (req: any, res: any) => {
             .status(406)
             .json({ message: "La contraseña no puede ser vacío" });
       }
-      if (role !== "admin") {
-         return res.status(406).json({ message: "Esta cuenta no es de admin" });
-      }
 
       const user = await AuthModel.findAll({
          where: {
             email: email,
             password,
-            role: role,
          },
       });
       //console.log(user);
@@ -84,23 +80,18 @@ export const signin = async (req: any, res: any) => {
             createdAt,
             updatedAt,
          } = user[0].dataValues;
-         if (role === "admin") {
-            res.status(200).json({
-               id,
-               firstName,
-               lastName,
-               fullName,
-               identificationCard,
-               email,
-               role,
-               createdAt,
-               updatedAt,
-            });
-         } else {
-            return res
-               .status(406)
-               .json({ message: "Esta cuenta no es de admin" });
-         }
+
+         res.status(200).json({
+            id,
+            firstName,
+            lastName,
+            fullName,
+            identificationCard,
+            email,
+            role,
+            createdAt,
+            updatedAt,
+         });
       } else {
          return res.status(406).json({ message: "Datos incorrectos" });
       }
@@ -123,7 +114,6 @@ export const signup = async (req: any, res: any) => {
       const user = await AuthModel.findAll({
          where: {
             email: email,
-            role: role,
          },
       });
       if (user.length > 0) {
@@ -181,7 +171,7 @@ export const signup = async (req: any, res: any) => {
    }
 };
 
-/* export const getUserByName = async (req: any, res: any) => {
+export const getUserByEmail = async (req: any, res: any) => {
    const { useremail } = req.params;
    try {
       const user = await AuthModel.findAll({
@@ -206,28 +196,21 @@ export const signup = async (req: any, res: any) => {
          data: error,
       });
    }
-}; */
+};
 
 export const editUserByEmail = async (req: any, res: any) => {
    const { useremail } = req.params;
-   const {
-      firstName,
-      lastName,
-      identificationCard,
-      username,
-      email,
-      password,
-      role,
-   } = req.body;
+   const { firstName, lastName, identificationCard, email, password, role } =
+      req.body;
    try {
       const userUpdated = await AuthModel.update(
          {
             firstName,
             lastName,
             identificationCard,
-            username,
+            fullName: `${firstName} ${lastName}`,
             email,
-            hash_password: password,
+            password,
             role,
          },
          {

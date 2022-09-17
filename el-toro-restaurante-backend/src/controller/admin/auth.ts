@@ -1,6 +1,6 @@
 const { AuthModel } = require("../../db/models/auth");
 
-exports.getAllUsers = async (req: any, res: any) => {
+export const getAllUsers = async (req: any, res: any) => {
    try {
       const users = await AuthModel.findAll();
       if (users) {
@@ -16,7 +16,7 @@ exports.getAllUsers = async (req: any, res: any) => {
    }
 };
 
-exports.getUserByName = async (req: any, res: any) => {
+export const getUserByName = async (req: any, res: any) => {
    const { useremail } = req.params;
    try {
       const user = await AuthModel.findAll({
@@ -181,7 +181,7 @@ export const signup = async (req: any, res: any) => {
    }
 };
 
-exports.getUserByName = async (req: any, res: any) => {
+/* export const getUserByName = async (req: any, res: any) => {
    const { useremail } = req.params;
    try {
       const user = await AuthModel.findAll({
@@ -206,9 +206,9 @@ exports.getUserByName = async (req: any, res: any) => {
          data: error,
       });
    }
-};
+}; */
 
-exports.editUserByEmail = async (req: any, res: any) => {
+export const editUserByEmail = async (req: any, res: any) => {
    const { useremail } = req.params;
    const {
       firstName,
@@ -253,7 +253,7 @@ exports.editUserByEmail = async (req: any, res: any) => {
    }
 };
 
-exports.deleteUserByEmail = async (req: any, res: any) => {
+export const deleteUserByEmail = async (req: any, res: any) => {
    const { useremail } = req.params;
 
    try {

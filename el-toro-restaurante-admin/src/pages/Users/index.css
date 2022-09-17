@@ -1,0 +1,19 @@
+.users {
+   margin-left: 1rem;
+}
+
+.users .userdelete {
+   padding: 0.5rem 0.75rem;
+}
+
+.users .userdelete:hover {
+   color: var(--first-color);
+}
+
+.users button {
+   margin-bottom: 1.5rem;
+}
+
+.users tr div {
+   border: none;
+}

@@ -1,8 +1,39 @@
+.nav-products {
+   width: 100%;
+}
+
+.nav-products ul {
+   display: flex;
+   justify-content: center;
+   gap: 2rem;
+   padding: 3rem 0;
+   background-color: var(--first-color);
+   color: var(--second-color);
+}
+
+.nav-products ul li {
+   margin-left: 1rem;
+}
+
+.nav-products ul a {
+   font-weight: bolder;
+   letter-spacing: 1px;
+   color: var(--second-color);
+}
+
+.cards-container {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   gap: 4rem;
+   margin: 4rem auto;
+}
+
 .card {
    display: flex;
    justify-content: center;
    flex-direction: column;
-   width: 15rem;
+   width: 25%;
    text-align: center;
 }
 
@@ -12,4 +43,5 @@
 
 .card img {
    margin-bottom: 1rem;
+   border-radius: 10px;
 }

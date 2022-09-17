@@ -1,21 +1,28 @@
 import * as React from "react";
 import Layout from "../../components/Layout";
 import Button from "../../components/UI/Button";
-import logoNenesBurger from "../../assets/nenesburger.jpg";
+import logoElToro from "../../assets/el-toro-logo.jpg";
+import menuElToro from "../../assets/hero-image.jpg";
 import "./index.css";
 import Container from "../../components/UI/Container";
 
 function HomePage() {
    return (
-      <Layout>
+      <Layout info={false} direction={true}>
          <section className="hero-image">
             <aside className="hero-image-opacity">
                <div className="restaurant-info">
                   <div className="restaurant-logo">
-                     <img src={logoNenesBurger} alt="logo" />
+                     <img src={logoElToro} alt="logo" />
                   </div>
-                  <Button url={"/productos"}>Nuestros productos</Button>
-                  <h3>Las mejores hamburguesas de cabimas</h3>
+                  <Button
+                     url={"/productos"}
+                     className={undefined}
+                     onClick={undefined}
+                  >
+                     Nuestros productos
+                  </Button>
+                  <h3>El Buen Sabor de la Comida</h3>
                </div>
             </aside>
          </section>
@@ -30,16 +37,42 @@ function HomePage() {
                </div>
             </div>
             <section className="menus">
-               <div>
-                  <h3>Menus y productos</h3>
+               <div className="menus-img">
+                  <img src={menuElToro} alt="Menu el toro" />
+               </div>
+               <div className="menus-info">
+                  <h4>Lorem, ipsum dolor.</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                  <span>6$</span>
+               </div>
+               <div className="menus-info">
+                  <h4>Lorem, ipsum dolor.</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                  <span>3$</span>
+               </div>
+               <div className="menus-info">
+                  <h4>Lorem, ipsum dolor.</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                  <span>2$</span>
+               </div>
+               <div className="menus-info">
+                  <h4>Lorem, ipsum dolor.</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                  <span>5$</span>
+               </div>
+               <div className="menus-info">
+                  <h4>Lorem, ipsum dolor.</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                  <span>3$</span>
+               </div>
+               <div className="menus-info">
+                  <h4>Lorem, ipsum dolor.</h4>
+                  <p>Lorem ipsum dolor sit amet consectetur.</p>
+                  <span>5$</span>
                </div>
             </section>
          </Container>
-         <section className="direction">
-            <div className="direction-container">
-               <h4>Direccion</h4>
-            </div>
-         </section>
+
          <Container>
             <section className="restaurant-information">
                <div className="privacy-information">
@@ -51,7 +84,7 @@ function HomePage() {
                </div>
             </section>
             <footer>
-               <p>All reserved | nenesburger.com, 2022</p>
+               <p>All reserved | tostadaseltoro.com, 2022</p>
             </footer>
          </Container>
       </Layout>

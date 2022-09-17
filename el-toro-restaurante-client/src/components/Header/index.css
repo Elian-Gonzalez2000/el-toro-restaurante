@@ -7,8 +7,7 @@
 
 .nav-bar ul {
    display: flex;
-   justify-content: space-between;
-   flex-direction: row-reverse;
+   justify-content: flex-end;
    margin: 0 auto;
    width: 90%;
    max-width: 1200px;
@@ -16,6 +15,7 @@
 
 .nav-bar ul li {
    display: inline-block;
+   margin-left: 2rem;
 }
 
 .nav-bar a {
@@ -26,5 +26,34 @@
 }
 
 .nav-bar a:hover {
-   color: aqua;
+   color: var(--second-color);
+}
+
+.restaurant-info {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   text-align: center;
+   margin-top: 2rem;
+   margin-bottom: 3rem;
+}
+
+.restaurant-info h3 {
+   letter-spacing: 2px;
+}
+
+.restaurant-info > div,
+.restaurant-info > img,
+.restaurant-info > button {
+   margin-bottom: 2rem;
+}
+
+.restaurant-logo {
+   width: 100px;
+   margin: auto;
+}
+
+.restaurant-logo img {
+   border-radius: 50%;
 }

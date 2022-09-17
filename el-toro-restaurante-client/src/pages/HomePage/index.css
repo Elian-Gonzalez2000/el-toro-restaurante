@@ -2,7 +2,7 @@
    width: 100vw;
    min-height: 90vh;
    background-color: #f3f3f3;
-   background-image: url("../../assets/images.jpg");
+   background-image: url("../../assets/hero-image3.jpg");
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
@@ -12,11 +12,30 @@
    width: 100%;
    min-height: 100vh;
    display: flex;
+   flex-direction: column;
    justify-content: space-around;
    align-items: center;
    text-align: center;
    background-color: rgba(0, 0, 0, 0.5);
    color: #f3f3f3;
+}
+
+.hero-image-opacity .restaurant-info {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   text-align: center;
+}
+
+.hero-image-opacity h3 {
+   letter-spacing: 2px;
+}
+
+.hero-image-opacity .restaurant-info > div,
+.hero-image-opacity .restaurant-info > img,
+.hero-image-opacity .restaurant-info > button {
+   margin-bottom: 2rem;
 }
 
 .restaurant-logo {
@@ -31,6 +50,7 @@
 /* Delivery message */
 .delivery {
    margin: 6rem auto;
+   color: var(--second-color);
 }
 
 .delivery-container {
@@ -43,7 +63,7 @@
    display: inline-block;
 }
 .delivery-container span:nth-child(2n + 1) {
-   border-bottom: 1px solid #666;
+   border-bottom: 1px solid var(--second-color);
    width: 30%;
    padding-top: 3px;
 }
@@ -60,50 +80,34 @@
 .menus {
    display: flex;
    justify-content: center;
-   align-items: center;
-   width: 80%;
+   flex-wrap: wrap;
+   width: 60%;
    min-height: 100vh;
-   background-color: #666;
+   background-color: var(--black-color);
    margin: auto;
    color: #f3f3f3;
+   padding-bottom: 2rem;
 }
 
-/* Direction */
-.direction {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: #fecf0a;
-   padding: 2rem;
-   margin: 5rem auto;
+.menus-img {
+   width: 70%;
+   margin: auto;
+   margin-bottom: 3rem;
 }
 
-/* Restaurant Information */
-
-.restaurant-information {
-   display: flex;
-   justify-content: space-evenly;
-   align-items: center;
-   margin: 3rem auto;
-}
-
-.restaurant-information .privacy-information {
+.menus-info {
+   width: 50%;
+   gap: 3rem;
    text-align: center;
+   margin-bottom: 2rem;
 }
 
-.restaurant-information .contact-information {
-   text-align: center;
+.menus-info h4 {
+   margin-bottom: 1.5rem;
 }
-
-.restaurant-information div:nth-child(2) {
-   border-left: 1px solid #222;
-   border-right: 1px solid #222;
-   height: 40px;
+.menus-info p {
+   margin-bottom: 0.5rem;
 }
-
-/* Footer */
-
-footer {
-   text-align: center;
-   padding: 2rem 0;
+.menus-info span {
+   display: inline-block;
 }

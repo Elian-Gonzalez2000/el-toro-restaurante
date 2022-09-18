@@ -38,6 +38,7 @@ function App() {
                   path="/usuarios/editar/:useremail"
                   element={<EditUsers />}
                />
+               <Route path="/productos/:category/:id" element={<Products />} />
                <Route path="/productos" element={<Products />} />
             </Routes>
          </Router>

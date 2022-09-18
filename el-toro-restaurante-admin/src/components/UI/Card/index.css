@@ -1,0 +1,45 @@
+.nav-products {
+   width: 100%;
+}
+
+.nav-products ul {
+   display: flex;
+   justify-content: center;
+   gap: 2rem;
+   padding: 3rem 0;
+   background-color: var(--first-color);
+   color: var(--second-color);
+}
+
+.nav-products ul li {
+   margin-left: 1rem;
+}
+
+.nav-products ul a {
+   font-weight: bolder;
+   letter-spacing: 1px;
+   color: var(--second-color);
+}
+
+.card {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   width: 25%;
+   text-align: center;
+}
+
+.card h4 {
+   letter-spacing: 1px;
+   margin-bottom: 1rem;
+}
+
+.card p {
+   margin-bottom: 1rem;
+   letter-spacing: 1px;
+}
+
+.card img {
+   margin-bottom: 1rem;
+   border-radius: 10px;
+}

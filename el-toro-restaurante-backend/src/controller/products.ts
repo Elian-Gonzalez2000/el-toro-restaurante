@@ -1,6 +1,6 @@
 import slugify from "slugify";
 
-const { ProductModel } = require("../../db/models/product");
+const { ProductModel } = require("../db/models/product");
 
 interface Body {
    name: string;

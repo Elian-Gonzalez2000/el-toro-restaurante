@@ -1,6 +1,6 @@
 const routes = require("express").Router();
 import auth from "./admin/auth";
-import product from "./admin/product";
+import product from "./product";
 import initialData from "./admin/initialData";
 
 routes.use("/api", auth);

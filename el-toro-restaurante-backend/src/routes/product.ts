@@ -1,9 +1,6 @@
 const router = require("express").Router();
 
-const {
-   createProduct,
-   getAllProducts,
-} = require("../../controller/admin/products");
+const { createProduct, getAllProducts } = require("../controller/products");
 
 const multer = require("multer");
 const path = require("path");
@@ -19,8 +16,9 @@ const storage = multer.diskStorage({
 });
 //console.log(path.dirname(__dirname));
 const upload = multer({ storage });
+console.log(path.dirname(__dirname));
 
-router.get("admin/products", getAllProducts);
+router.get("/admin/products", getAllProducts);
 router.post(
    "/admin/product/create",
    upload.array("productPicture", 7),

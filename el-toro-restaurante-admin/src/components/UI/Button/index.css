@@ -1,5 +1,6 @@
 button {
    background-color: var(--first-color);
+   font-weight: bolder;
    outline: none;
    border: thin solid #222;
    border-radius: 5px;
@@ -24,9 +25,9 @@ button a {
    right: 0;
 }
 
-.return a {
-   color: var(--white-color);
-}
+/* .return a {
+   color: var(--link-color);
+} */
 
 /* .return:hover {
    color: #0b4fce;

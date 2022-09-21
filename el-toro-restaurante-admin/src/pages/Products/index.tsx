@@ -5,9 +5,9 @@ import { getAllProduct } from "../../actions";
 import Layout from "../../components/Layout";
 import Button from "../../components/UI/Button";
 import Container from "../../components/UI/Container";
-import productImage from "../../../../el-toro-restaurante-backend/src/uploads/hEHm02E92-hero-image3.jpg";
 import { urlImages } from "../../urlConfig";
 import Card from "../../components/UI/Card";
+import "./index.css";
 
 function Products() {
    const [allProducts, setAllProducts] = useState([]);
@@ -16,16 +16,28 @@ function Products() {
 
    useEffect(() => {
       //dispatch(getAllProduct());
-      if (products.product) {
-         setAllProducts(products.product);
+      if (products.products) {
+         setAllProducts(products.products);
       }
-   }, [products.product]);
+   }, [products.products]);
    console.log(allProducts);
+
+   const handleClick = (e: any) => {};
 
    return (
       <Layout>
-         <Container>
+         <Container className={"products-section"}>
             <h2>Productos</h2>
+            <div>
+               <Button
+                  type=""
+                  url={"./create"}
+                  className={`product-button`}
+                  onClick={undefined}
+               >
+                  Crear producto
+               </Button>
+            </div>
             <div className="products-cards-container">
                {allProducts &&
                   allProducts.map((el: any, index) => {

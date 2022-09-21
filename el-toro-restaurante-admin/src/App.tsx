@@ -7,8 +7,11 @@ import { getInitialData, isUserLoggedIn } from "./actions";
 import "./App.css";
 import Users from "./pages/Users";
 import Products from "./pages/Products";
+import ProductDetail from "./pages/ProductDetail";
 import CreateUsers from "./pages/CreateUsers";
 import EditUsers from "./pages/EditUsers";
+import CreateProducts from "./pages/CreateProducts";
+import EditProduct from "./pages/EditProduct";
 
 function App() {
    const dispatch = useDispatch();
@@ -38,8 +41,16 @@ function App() {
                   path="/usuarios/editar/:useremail"
                   element={<EditUsers />}
                />
-               <Route path="/productos/:category/:id" element={<Products />} />
                <Route path="/productos" element={<Products />} />
+               <Route
+                  path="/productos/:category/:id"
+                  element={<ProductDetail />}
+               />
+               <Route
+                  path="/productos/:category/:id/edit"
+                  element={<EditProduct />}
+               />
+               <Route path="/productos/create" element={<CreateProducts />} />
             </Routes>
          </Router>
       </div>

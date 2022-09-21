@@ -1,3 +1,7 @@
+.products-section {
+   margin: 3rem auto;
+}
+
 .products-cards-container {
    display: flex;
    flex-wrap: wrap;
@@ -5,3 +9,15 @@
    gap: 4rem;
    margin: 4rem auto;
 }
+
+.products-section h2 {
+   text-align: center;
+}
+
+.products-section img {
+   max-height: 170px;
+}
+
+/* .products-section .product-button {
+   padding: 0.5rem 0.75rem;
+} */

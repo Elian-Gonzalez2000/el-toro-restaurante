@@ -1,47 +1,98 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { getAllProduct } from "../../actions";
+import { Link, useParams } from "react-router-dom";
+import { getAllProduct, getProductById } from "../../actions";
 import Layout from "../../components/Layout";
 import Button from "../../components/UI/Button";
 import Container from "../../components/UI/Container";
 import productImage from "../../../../el-toro-restaurante-backend/src/uploads/hEHm02E92-hero-image3.jpg";
 import { urlImages } from "../../urlConfig";
 import Card from "../../components/UI/Card";
+import "./index.css";
 
 function Products() {
-   const [allProducts, setAllProducts] = useState([]);
+   const { id } = useParams();
+   const [product, setProduct] = useState([]);
    const products = useSelector((state: any) => state.product);
    const dispatch = useDispatch();
-
    useEffect(() => {
-      //dispatch(getAllProduct());
+      dispatch(getProductById(id));
       if (products.product) {
-         setAllProducts(products.product);
+         setProduct(products.product);
       }
-   }, [products.product]);
-   console.log(allProducts);
+   }, []);
+
+   console.log(product);
 
    return (
       <Layout>
-         <Container>
-            <h2>Productos</h2>
-            <div className="products-cards-container">
-               {allProducts &&
-                  allProducts.map((el: any, index) => {
-                     console.log(el);
-                     return (
-                        <>
-                           <Card
-                              key={"image" + el.id}
+         <Container className={"product-detail-section"}>
+            <h2>Producto: {products.product.name}</h2>
+            <Button
+               type=""
+               url={"./edit"}
+               className={"details-button edit"}
+               onClick={""}
+            >
+               Editar
+            </Button>
+            <Button
+               type=""
+               url={undefined}
+               className={"details-button detail-delete"}
+               onClick={""}
+            >
+               Eliminar
+            </Button>
+            <div className="products-cards-details-container">
+               {products.product?.productPicture && (
+                  <>
+                     <div className="card-details">
+                        <div className="card-details-info">
+                           <h4>{products.product.name}</h4>
+                           <p>Precio: {products.product.price}</p>
+                           <p>{products.product.description}</p>
+                           {/* <Button
+                              url={""}
                               className={""}
-                              data={el}
-                              url={`./${el.category}/${el.id}`}
                               onClick={undefined}
-                           />
-                        </>
-                     );
-                  })}
+                              type={""}
+                              >
+                              Añadir al carrito
+                           </Button> */}
+                        </div>
+                        {products.product?.productPicture.split(";").length >
+                        1 ? (
+                           products.product?.productPicture
+                              .split(";")
+                              .map((el: any) => {
+                                 console.log(el);
+                                 if (el) {
+                                    return (
+                                       <div className="card-details-img">
+                                          <img
+                                             src={`${urlImages}${el}`}
+                                             alt={products.product?.category}
+                                          />
+                                       </div>
+                                    );
+                                 }
+                              })
+                        ) : (
+                           <div className="card-details-img">
+                              <img
+                                 src={`${urlImages}${
+                                    products.product?.productPicture.split(
+                                       ";"
+                                    )[0]
+                                 }`}
+                                 alt="hamburguesa"
+                              />{" "}
+                           </div>
+                        )}
+                     </div>
+                  </>
+               )}
             </div>
          </Container>
       </Layout>

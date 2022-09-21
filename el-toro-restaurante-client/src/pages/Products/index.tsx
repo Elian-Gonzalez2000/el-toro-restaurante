@@ -3,10 +3,14 @@ import Layout from "../../components/Layout";
 import hamburger from "../../assets/hamburguesa.jpg";
 import Button from "../../components/UI/Button";
 import { Link, NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import "./index.css";
 import Container from "../../components/UI/Container";
+import { urlImages } from "../../urlConfig";
 
 function Products() {
+   const product = useSelector((state: any) => state.product);
+   console.log(product);
    return (
       <Layout info={true} direction={true}>
          <nav className="nav-products">
@@ -26,71 +30,32 @@ function Products() {
             </ul>
          </nav>
          <Container className={"cards-container"}>
-            <div className="card">
-               <div>
-                  <img src={hamburger} alt="hamburguesa" />
-               </div>
-               <h4>TORO CLASSIC BURGER MENU</h4>
-               <Button
-                  url={"./hamburguer/1"}
-                  className={undefined}
-                  onClick={undefined}
-               >
-                  Detalles
-               </Button>
-            </div>
-            <div className="card">
-               <div>
-                  <img src={hamburger} alt="hamburguesa" />
-               </div>
-               <h4>TORO CLASSIC BURGER MENU</h4>
-               <Button
-                  url={"./hamburguer/2"}
-                  className={undefined}
-                  onClick={undefined}
-               >
-                  Detalles
-               </Button>
-            </div>
-            <div className="card">
-               <div>
-                  <img src={hamburger} alt="hamburguesa" />
-               </div>
-               <h4>TORO CLASSIC BURGER MENU</h4>
-               <Button
-                  url={"./hamburguer/3"}
-                  className={undefined}
-                  onClick={undefined}
-               >
-                  Detalles
-               </Button>
-            </div>
-            <div className="card">
-               <div>
-                  <img src={hamburger} alt="hamburguesa" />
-               </div>
-               <h4>TORO CLASSIC BURGER MENU</h4>
-               <Button
-                  url={"./hamburguer/4"}
-                  className={undefined}
-                  onClick={undefined}
-               >
-                  Detalles
-               </Button>
-            </div>
-            <div className="card">
-               <div>
-                  <img src={hamburger} alt="hamburguesa" />
-               </div>
-               <h4>TORO CLASSIC BURGER MENU</h4>
-               <Button
-                  url={"./hamburguer/5"}
-                  className={undefined}
-                  onClick={undefined}
-               >
-                  Detalles
-               </Button>
-            </div>
+            {product && product.products.length > 0
+               ? product.products.map((el: any) => {
+                    return (
+                       <>
+                          <div className="card">
+                             <div>
+                                <img
+                                   src={`${urlImages}${
+                                      el.productPicture.split(";")[0]
+                                   }`}
+                                   alt="hamburguesa"
+                                />
+                             </div>
+                             <h4>{el.name}</h4>
+                             <Button
+                                url={`./hamburguer/${el.id}`}
+                                className={undefined}
+                                onClick={undefined}
+                             >
+                                Detalles
+                             </Button>
+                          </div>
+                       </>
+                    );
+                 })
+               : null}
          </Container>
       </Layout>
    );

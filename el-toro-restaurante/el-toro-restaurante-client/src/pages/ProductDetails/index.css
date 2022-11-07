@@ -1,0 +1,43 @@
+.card-details {
+   margin: 6rem auto;
+}
+
+.card-details .card {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   gap: 4rem;
+}
+
+.card-details-img {
+   width: 45%;
+}
+
+.card-details-img img {
+   max-height: 300px;
+}
+
+.card-details-info {
+   width: 45%;
+}
+
+.card-details-info h4 {
+   font-size: 1.5rem;
+   letter-spacing: 2px;
+   text-align: center;
+   color: var(--first-color);
+   margin-bottom: 2rem;
+}
+
+.card-details-info p {
+   letter-spacing: 1px;
+   margin-bottom: 1rem;
+}
+
+.card-details-info button {
+   display: inline-block;
+   padding: 0.5rem 0.75rem;
+   transition: 0.3s all ease-in-out;
+}

@@ -1,0 +1,26 @@
+button {
+   position: relative;
+   background-color: var(--first-color);
+   outline: none;
+   border: thin solid #222;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: 0.3s all ease-in-out;
+}
+
+button:hover {
+   background-color: var(--second-color);
+}
+
+button a {
+   width: 100%;
+   display: inline-block;
+   padding: 0.5rem 0.75rem;
+   transition: 0.3s all ease-in-out;
+}
+
+.return {
+   position: absolute;
+   top: 0;
+   right: 5%;
+}

@@ -1,0 +1,17 @@
+.input input {
+   display: inline-block;
+   border: 1px solid #222222;
+   width: 40%;
+   padding: 0.5rem;
+   margin-top: 0.5rem;
+}
+.input label {
+   display: block;
+   color: #222;
+   font-weight: bolder;
+   margin-top: 2rem;
+}
+.input .error-message {
+   margin-top: 0.5rem;
+   color: #991f1f;
+}

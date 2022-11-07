@@ -1,0 +1,30 @@
+select {
+   display: inline-block;
+   width: 50%;
+   padding: 0.5rem 0.75rem;
+   cursor: pointer;
+}
+
+.create-products button[type="submit"] {
+   display: block;
+   width: 25%;
+   margin: auto;
+   margin-bottom: 2rem;
+   cursor: pointer;
+}
+
+.input .product-picture-name {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   letter-spacing: 1px;
+   font-weight: bolder;
+   margin-bottom: 0.25rem;
+   cursor: pointer;
+   transition: color ease-in-out 0.3s;
+}
+
+.input .product-picture-name:hover {
+   color: var(--first-color);
+   transition: color ease-in-out 0.3s;
+}

@@ -1,0 +1,31 @@
+:root {
+   --first-color: #fecf0a;
+   --first-alpha-color: #fecf0ab3;
+   --second-color: #ef3f23;
+   --second-alpha-color: #ef3f23b3;
+   --gray-color: #666;
+   --white-color: #f3f3f3;
+   --black-color: #222;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Open Sans", sans-serif;
+   scroll-behavior: smooth;
+}
+
+a {
+   color: #000000;
+   text-decoration: none;
+}
+
+img {
+   width: 100%;
+   height: auto;
+}
+
+li {
+   list-style: none;
+}

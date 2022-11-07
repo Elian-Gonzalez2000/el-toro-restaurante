@@ -1,0 +1,111 @@
+.cart-btn {
+   position: fixed;
+   bottom: 5%;
+   right: 3vw;
+   width: 4rem;
+   height: 4rem;
+   border: 2px solid var(--black-color);
+   background-color: var(--white-color);
+   color: var(--black-color);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 50%;
+   z-index: 999;
+   transition: all ease 0.3s;
+   cursor: pointer;
+}
+
+.cart-btn svg {
+   width: 60%;
+   height: 60%;
+   transition: 0.3s all ease;
+}
+
+.cart-btn.btn-effect {
+   color: var(--first-color);
+   background-color: var(--gray-light-color);
+   transform: rotate(90deg);
+}
+
+.cart-btn:hover {
+   color: var(--first-color);
+   /* background-color: var(--gray-light-color); */
+   border: 2px solid var(--first-color);
+}
+
+.cart-products {
+   position: fixed;
+   top: 0;
+   left: 100vw;
+   /* bottom: 0; */
+   width: 40vw;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   text-align: center;
+   padding: 1rem 2rem;
+   background-color: var(--white-color);
+   overflow-y: scroll;
+   z-index: 998;
+   box-shadow: 1px 0px 10px 1px var(--black-color);
+   transition: left 0.5s ease-in-out;
+}
+
+.cart-products > h3 {
+   border-bottom: 2px solid var(--black-color);
+   padding-bottom: 1rem;
+}
+
+.cart-products > div {
+   border-bottom: 2px solid var(--black-color);
+   /* margin-bottom: 1rem; */
+}
+
+.cart-product {
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   max-height: 120px;
+}
+
+.cart-product > div {
+   width: 45%;
+}
+
+.cart-product > div img {
+   max-height: 120px;
+}
+
+.cart-product-info h4 {
+   color: #666;
+   margin-bottom: 1rem;
+   letter-spacing: 1px;
+}
+.cart-product-info p {
+   font-weight: bold;
+   letter-spacing: 1px;
+}
+
+.cart-pay-btn {
+   display: inline-block;
+   width: 50%;
+   font-weight: bold;
+   margin: auto;
+   margin-bottom: 1rem;
+   margin-top: auto;
+}
+
+.cart-pay-btn-disabled {
+   padding: 0.5rem 0.75rem;
+}
+
+.cart-total-price {
+   margin-bottom: 0.5rem;
+   letter-spacing: 1px;
+   font-weight: bolder;
+   text-align: left;
+}

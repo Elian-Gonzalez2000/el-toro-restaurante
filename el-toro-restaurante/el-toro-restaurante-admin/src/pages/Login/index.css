@@ -1,0 +1,13 @@
+form {
+   text-align: center;
+}
+
+form button {
+   display: inline-block;
+   outline: none;
+   font-weight: bolder;
+   padding: 0.3rem 0.5rem;
+   margin-top: 1rem;
+   border: thin solid #222;
+   border-radius: 3px;
+}

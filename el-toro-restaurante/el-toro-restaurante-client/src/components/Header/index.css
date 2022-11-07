@@ -1,0 +1,62 @@
+.nav-bar {
+   width: 100vw;
+   padding: 1rem 0;
+   text-align: center;
+   background-color: #fecf0a;
+}
+
+.nav-bar ul {
+   display: flex;
+   justify-content: flex-end;
+   margin: 0 auto;
+   width: 90%;
+   max-width: 1200px;
+}
+
+.nav-bar ul li {
+   display: inline-block;
+   margin-left: 2rem;
+}
+
+.nav-bar a {
+   font-size: 1.2rem;
+   font-weight: bolder;
+   letter-spacing: 1px;
+   transition: color 0.3s ease-out;
+}
+
+.nav-bar a:hover {
+   color: var(--second-color);
+}
+
+.restaurant-info {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   text-align: center;
+   margin-top: 2rem;
+   margin-bottom: 3rem;
+}
+
+.restaurant-info h3 {
+   font-size: 1.3rem;
+   letter-spacing: 2px;
+}
+
+.restaurant-info > div,
+.restaurant-info > img,
+.restaurant-info > button {
+   margin-bottom: 2rem;
+}
+
+.restaurant-info .restaurant-logo {
+   width: 120px;
+   margin: auto;
+   margin-bottom: 1rem;
+}
+
+.restaurant-info .restaurant-logo img {
+   width: 120px;
+   border-radius: 50%;
+}

@@ -1,0 +1,121 @@
+.hero-image {
+   width: 100vw;
+   min-height: 90vh;
+   background-color: #f3f3f3;
+   background-image: url("../../assets/hero-image3.jpg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.hero-image-opacity {
+   width: 100%;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   text-align: center;
+   background-color: rgba(0, 0, 0, 0.5);
+   color: #f3f3f3;
+}
+
+.hero-image-opacity .restaurant-info {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   text-align: center;
+}
+
+.hero-image-opacity h3 {
+   letter-spacing: 2px;
+}
+
+.hero-image-opacity .restaurant-info > div,
+.hero-image-opacity .restaurant-info > img,
+.hero-image-opacity .restaurant-info > button {
+   margin-bottom: 2rem;
+}
+
+.restaurant-logo img {
+   width: 100px;
+   margin: auto;
+}
+
+.restaurant-logo img {
+   border-radius: 50%;
+}
+
+/* Delivery message */
+.delivery {
+   margin: 6rem auto;
+   color: var(--second-color);
+}
+
+.delivery-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.delivery-container span {
+   display: inline-block;
+}
+.delivery-container span:nth-child(2n + 1) {
+   border-bottom: 1px solid var(--second-color);
+   width: 30%;
+   padding-top: 3px;
+}
+
+.delivery-container .delivery-message {
+   width: initial;
+   border: none;
+   font-size: 1.5rem;
+   font-weight: lighter;
+}
+
+/* Menus and product */
+
+.menus {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   width: 60%;
+   min-height: 100vh;
+   background-color: var(--black-color);
+   margin: auto;
+   color: #f3f3f3;
+   padding-bottom: 2rem;
+}
+
+.menus-img {
+   width: 70%;
+   margin: auto;
+   margin-bottom: 3rem;
+}
+
+.menus-info {
+   width: 50%;
+   gap: 3rem;
+   text-align: center;
+   margin-bottom: 2rem;
+}
+
+.menus-info h4 {
+   margin-bottom: 1.5rem;
+   letter-spacing: 1px;
+}
+.menus-info p {
+   margin-bottom: 0.5rem;
+}
+.menus-info span {
+   display: inline-block;
+}
+
+.toro-menu {
+   text-align: center;
+   margin-bottom: 1rem;
+   color: var(--second-color);
+   letter-spacing: 1px;
+}

@@ -1,0 +1,12 @@
+.purchases-cards-container p {
+   margin-bottom: 0.4rem;
+}
+
+.purchases-cards-container strong {
+   margin-right: 0.25rem;
+}
+
+.purchases-section .purchase-button {
+   padding: 0.5rem 0.75rem;
+   margin-left: 0.5rem;
+}

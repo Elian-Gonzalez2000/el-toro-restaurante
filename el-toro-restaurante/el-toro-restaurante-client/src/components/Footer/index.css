@@ -1,0 +1,56 @@
+/* Direction */
+.direction {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #fecf0a;
+   color: var(--second-color);
+   padding: 2rem;
+   margin: 5rem auto;
+}
+
+.direction h3 {
+   text-transform: uppercase;
+   text-align: center;
+
+   margin-bottom: 1.5rem;
+}
+.direction p {
+   text-transform: uppercase;
+   text-align: center;
+   font-weight: bolder;
+   margin-bottom: 1rem;
+}
+
+/* Restaurant Information */
+
+.restaurant-information {
+   position: relative;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   margin: 3rem auto;
+   color: var(--second-color);
+}
+
+.restaurant-information .privacy-information {
+   text-align: center;
+}
+
+.restaurant-information .contact-information {
+   text-align: center;
+}
+
+.restaurant-information div:nth-child(2) {
+   border-left: 1px solid var(--second-color);
+   border-right: 1px solid var(--second-color);
+   height: 40px;
+}
+
+/* Footer */
+
+footer {
+   text-align: center;
+   padding: 2rem 0;
+   color: #8d8b8b;
+}

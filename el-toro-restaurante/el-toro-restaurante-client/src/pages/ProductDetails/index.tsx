@@ -11,7 +11,7 @@ import { urlImages } from "../../urlConfig";
 
 function ProductDetails() {
    const { id } = useParams();
-   const [product, setProduct] = useState([]);
+   const [product, setProduct] = useState<Array<any>>([]);
    const products = useSelector((state: any) => state.product);
    const dispatch = useDispatch();
    const { name, price, description, productPicture } = products.product;

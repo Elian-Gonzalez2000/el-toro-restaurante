@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Layout from "../../components/Layout";
 import Button from "../../components/UI/Button";
 import logoElToro from "../../assets/el-toro-logo.jpg";

@@ -3,7 +3,7 @@ import axios from "../helpers/axios..js";
 import { cartConstants } from "./constants.js";
 
 export const addToCart = (product: any) => {
-   return (dispatch: any) => {
+   return (dispatch: Function) => {
       try {
          //console.log(product);
          dispatch({
@@ -17,7 +17,7 @@ export const addToCart = (product: any) => {
 };
 
 export const deleteToCart = (product: any) => {
-   return (dispatch: any) => {
+   return (dispatch: Function) => {
       try {
          //console.log(product);
          dispatch({
@@ -31,7 +31,7 @@ export const deleteToCart = (product: any) => {
 };
 
 export const getTotalPrice = (product: any) => {
-   return (dispatch: any) => {
+   return (dispatch: Function) => {
       try {
          dispatch({
             type: cartConstants.GET_TOTAL_PRICE_SUCCESS,
@@ -44,7 +44,7 @@ export const getTotalPrice = (product: any) => {
 };
 
 export const payProductsCart = (form: any) => {
-   return async (dispatch: any) => {
+   return async (dispatch: Function) => {
       try {
          const res = await axios.post("/admin/purchases", form);
          if (res.status === 200) {
@@ -86,7 +86,7 @@ export const payProductsCart = (form: any) => {
 };
 
 export const sendPurchaseEmail = (data: any) => {
-   return async (dispatch: any) => {
+   return async (dispatch: Function) => {
       try {
          const res = await axios.post("/send-email", data);
          if (res.status === 200) {

@@ -1,6 +1,16 @@
 import { cartConstants } from "../actions/constants";
 
-const initialState = {
+interface IinitialStateCart {
+   cart: Array<any>;
+   purchases: Array<any>;
+   totalPrice: number;
+   authenticate: boolean;
+   authenticating: boolean;
+   loading: boolean;
+   error: null;
+   message: string;
+}
+const initialState: IinitialStateCart = {
    cart: [],
    purchases: [],
    totalPrice: 0,

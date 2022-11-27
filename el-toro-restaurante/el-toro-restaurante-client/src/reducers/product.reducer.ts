@@ -1,6 +1,16 @@
 import { productConstants } from "../actions/constants";
 
-const initialState = {
+interface IinitialStateProduct {
+   product: Array<any>;
+   products: Array<any>;
+   authenticate: boolean;
+   authenticating: boolean;
+   loading: boolean;
+   error: null;
+   message: string;
+}
+
+const initialState: IinitialStateProduct = {
    product: [],
    products: [],
    authenticate: false,

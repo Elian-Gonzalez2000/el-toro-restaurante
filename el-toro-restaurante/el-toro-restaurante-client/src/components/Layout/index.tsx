@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import Header from "../Header";
 import Container from "../UI/Container/index";
 import "./index.css";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import Footer from "../Footer";
 import Cart from "../UI/Cart";
 

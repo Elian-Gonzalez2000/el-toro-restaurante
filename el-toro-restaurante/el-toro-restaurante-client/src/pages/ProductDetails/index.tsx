@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../../components/Layout";
-import hamburger from "../../assets/hamburguesa.jpg";
 import "./index.css";
 import Button from "../../components/UI/Button";
 import { useParams } from "react-router";

@@ -1,4 +1,5 @@
 import slugify from "slugify";
+import { Request, Response } from "express";
 
 const { ProductModel } = require("../db/models/product");
 
@@ -12,7 +13,11 @@ interface Body {
    createdBy: string | undefined;
 }
 
-export const getAllProducts = async (req: any, res: any) => {
+interface MulterRequest extends Request {
+   files: any;
+}
+
+export const getAllProducts = async (req: Request, res: Response) => {
    try {
       const product = await ProductModel.findAll();
       if (product) {
@@ -28,7 +33,7 @@ export const getAllProducts = async (req: any, res: any) => {
    }
 };
 
-export const createProduct = async (req: any, res: any) => {
+export const createProduct = async (req: MulterRequest, res: Response) => {
    try {
       //res.status(201).json({ message: "listoo" });
       const { name, price, quantity, description, category, createdBy }: Body =
@@ -36,20 +41,20 @@ export const createProduct = async (req: any, res: any) => {
       //console.log(JSON.parse(req.body));
 
       if (!name)
-         return res.json(406).status({ message: "El nombre es obligatorio" });
+         return res.status(406).json({ message: "El nombre es obligatorio" });
 
       if (!price)
-         return res.json(406).status({ message: "El precio es obligatorio" });
+         return res.status(406).json({ message: "El precio es obligatorio" });
 
       if (!description)
          return res
-            .json(406)
-            .status({ message: "La descripcion es obligatoria" });
+            .status(406)
+            .json({ message: "La descripcion es obligatoria" });
 
       if (!category)
          return res
-            .json(406)
-            .status({ message: "La categoria es obligatoria" });
+            .status(406)
+            .json({ message: "La categoria es obligatoria" });
 
       let productPictures = [];
 
@@ -95,7 +100,7 @@ export const createProduct = async (req: any, res: any) => {
    }
 };
 
-export const getProductById = async (req: any, res: any) => {
+export const getProductById = async (req: Request, res: Response) => {
    try {
       const { id } = req.params;
       const product = await ProductModel.findByPk(id);
@@ -108,27 +113,27 @@ export const getProductById = async (req: any, res: any) => {
    }
 };
 
-export const editProductById = async (req: any, res: any) => {
+export const editProductById = async (req: MulterRequest, res: Response) => {
    try {
       const { id } = req.params;
       const { name, price, quantity, description, category, createdBy }: Body =
          req.body;
 
       if (!name)
-         return res.json(406).status({ message: "El nombre es obligatorio" });
+         return res.status(406).json({ message: "El nombre es obligatorio" });
 
       if (!price)
-         return res.json(406).status({ message: "El precio es obligatorio" });
+         return res.status(406).json({ message: "El precio es obligatorio" });
 
       if (!description)
          return res
-            .json(406)
-            .status({ message: "La descripcion es obligatoria" });
+            .status(406)
+            .json({ message: "La descripcion es obligatoria" });
 
       if (!category)
          return res
-            .json(406)
-            .status({ message: "La categoria es obligatoria" });
+            .status(406)
+            .json({ message: "La categoria es obligatoria" });
 
       let productPictures = [];
 
@@ -181,7 +186,7 @@ export const editProductById = async (req: any, res: any) => {
    }
 };
 
-export const deleteProduct = async (req: any, res: any) => {
+export const deleteProduct = async (req: Request, res: Response) => {
    try {
       const { id } = req.params;
       console.log(id);

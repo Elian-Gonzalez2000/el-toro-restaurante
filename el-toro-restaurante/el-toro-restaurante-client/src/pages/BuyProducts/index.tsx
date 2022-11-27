@@ -8,11 +8,11 @@ import "./index.css";
 import { payProductsCart, sendPurchaseEmail } from "../../actions";
 
 function BuyProducts() {
-   const [clientName, setClientName] = useState("");
-   const [price, setPrice] = useState("");
-   const [email, setEmail] = useState("");
-   const [cellphone, setCellphone] = useState("");
-   const [ci, setCi]: any = useState([]);
+   const [clientName, setClientName] = useState<string>("");
+   const [price, setPrice] = useState<string>("");
+   const [email, setEmail] = useState<string>("");
+   const [cellphone, setCellphone] = useState<string>("");
+   const [ci, setCi]: Array<any> = useState([]);
    const productIntoCart = useSelector((state: any) => state.cart);
    const dispatch = useDispatch();
 
@@ -40,7 +40,7 @@ function BuyProducts() {
    };
 
    const totalPrice = (cart: any) => {
-      let unitPrice: any = [];
+      let unitPrice: Array<any> = [];
       let returnPrice: any = 0;
       cart &&
          cart.forEach((product: any) => {

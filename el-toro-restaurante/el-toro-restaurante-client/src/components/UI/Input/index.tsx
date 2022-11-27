@@ -2,15 +2,15 @@ import React from "react";
 import "./index.css";
 
 interface Props {
-   label: any;
+   label: string;
    type: any;
-   placeholder: any;
+   placeholder: string;
    value: any;
    onChange: any;
-   errorMessage: any;
-   error: any;
-   className: any;
-   name: any;
+   errorMessage: string;
+   error: string;
+   className: string;
+   name: string;
 }
 
 const Input = ({

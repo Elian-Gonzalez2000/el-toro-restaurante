@@ -1,8 +1,8 @@
 import axios from "../helpers/axios..js";
 import { productConstants } from "./constants.js";
 
-export const getAllProduct = (product: any) => {
-   return async (dispatch: any) => {
+export const getAllProduct = () => {
+   return async (dispatch: Function) => {
       try {
          const res = await axios.get("/admin/products");
          if (res.status === 200) {
@@ -19,7 +19,7 @@ export const getAllProduct = (product: any) => {
 };
 
 export const createProduct = (form: any) => {
-   return async (dispatch: any) => {
+   return async (dispatch: Function) => {
       try {
          const res = await axios.post("/admin/product/create", form);
          if (res.status === 201) {
@@ -35,8 +35,8 @@ export const createProduct = (form: any) => {
    };
 };
 
-export const getProductById = (id: any) => {
-   return async (dispatch: any) => {
+export const getProductById = (id: string) => {
+   return async (dispatch: Function) => {
       try {
          const res = await axios.get(`/admin/product/${id}`);
          if (res.status === 200) {
@@ -53,7 +53,7 @@ export const getProductById = (id: any) => {
 };
 
 export const editProduct = (id: any, data: any) => {
-   return async (dispatch: any) => {
+   return async (dispatch: Function) => {
       try {
          const res = await axios.put(`/admin/edituser/${id}`, {
             ...data,

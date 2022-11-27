@@ -11,8 +11,8 @@ import "./index.css";
 
 interface Props {
    children: any;
-   url: any | undefined;
-   className: any | undefined;
+   url: string | undefined;
+   className: string | undefined;
    onClick: any | undefined;
 }
 

@@ -8,9 +8,8 @@ import { deleteToCart } from "../../../actions";
 import Swal from "sweetalert2";
 
 function Cart() {
-   const [show, setShow] = useState(false);
-   const [price, setPrice] = useState("");
-   const [cartProducts, setCartProducts] = useState([]);
+   const [show, setShow] = useState<boolean>(false);
+   const [price, setPrice] = useState<string>("");
    const productIntoCart = useSelector((state: any) => state.cart);
    const dispatch = useDispatch();
    //console.log(productIntoCart);

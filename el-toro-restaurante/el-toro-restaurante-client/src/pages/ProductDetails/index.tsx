@@ -22,7 +22,7 @@ function ProductDetails() {
       }
    }, []);
 
-   const handleClick = (e: any) => {
+   const handleClick = (e: React.ChangeEventHandler<HTMLElement>) => {
       dispatch(addToCart(products.product));
    };
    //console.log(id);
@@ -39,7 +39,7 @@ function ProductDetails() {
                   </Button>
                </div>
                {productPicture &&
-                  productPicture.split(";").map((image: any) => {
+                  productPicture.split(";").map((image: string) => {
                      if (image) {
                         return (
                            <>

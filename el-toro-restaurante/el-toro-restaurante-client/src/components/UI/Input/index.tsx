@@ -6,10 +6,10 @@ interface Props {
    type: any;
    placeholder: string;
    value: any;
-   onChange: any;
-   errorMessage: string;
-   error: string;
-   className: string;
+   onChange: React.ChangeEventHandler<HTMLElement> | any;
+   errorMessage: string | undefined;
+   error: string | boolean;
+   className: string | undefined;
    name: string;
 }
 

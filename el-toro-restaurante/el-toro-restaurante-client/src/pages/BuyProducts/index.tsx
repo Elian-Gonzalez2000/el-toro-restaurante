@@ -16,7 +16,7 @@ function BuyProducts() {
    const productIntoCart = useSelector((state: any) => state.cart);
    const dispatch = useDispatch();
 
-   const handleClose = (e: any) => {
+   const handleClose = (e: React.FormEvent) => {
       e.preventDefault();
       const form = new FormData();
       form.append("name", clientName);
@@ -88,7 +88,9 @@ function BuyProducts() {
                   errorMessage={"Nombre no valido"}
                   value={clientName}
                   error={false}
-                  onChange={(e: any) => setClientName(e.target.value)}
+                  onChange={(e: React.FormEvent<HTMLInputElement>) =>
+                     setClientName((e.target as HTMLInputElement).value)
+                  }
                   className={""}
                />
                <Input
@@ -99,7 +101,9 @@ function BuyProducts() {
                   errorMessage={"Nombre no valido"}
                   value={cellphone}
                   error={false}
-                  onChange={(e: any) => setCellphone(e.target.value)}
+                  onChange={(e: React.FormEvent<HTMLInputElement>) =>
+                     setCellphone((e.target as HTMLInputElement).value)
+                  }
                   className={""}
                />
                <Input
@@ -110,7 +114,9 @@ function BuyProducts() {
                   errorMessage={"Nombre no valido"}
                   value={ci}
                   error={false}
-                  onChange={(e: any) => setCi(e.target.value)}
+                  onChange={(e: React.FormEvent<HTMLInputElement>) =>
+                     setCi((e.target as HTMLInputElement).value)
+                  }
                   className={""}
                />
                <Input
@@ -121,7 +127,9 @@ function BuyProducts() {
                   errorMessage={"Fecha no valida"}
                   value={email}
                   error={false}
-                  onChange={(e: any) => setEmail(e.target.value)}
+                  onChange={(e: React.FormEvent<HTMLInputElement>) =>
+                     setEmail((e.target as HTMLInputElement).value)
+                  }
                   className={""}
                />
                <Input
@@ -132,7 +140,9 @@ function BuyProducts() {
                   errorMessage={"Fecha no valida"}
                   value={price}
                   error={false}
-                  onChange={(e: any) => setPrice(e.target.value)}
+                  onChange={(e: React.FormEvent<HTMLInputElement>) =>
+                     setPrice((e.target as HTMLInputElement).value)
+                  }
                   className={""}
                />
 

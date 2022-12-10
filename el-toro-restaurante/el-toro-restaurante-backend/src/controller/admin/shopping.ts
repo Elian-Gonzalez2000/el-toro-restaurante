@@ -1,6 +1,7 @@
 const { ShoppingModel } = require("../../db/models/shopping.js");
+import { Request, Response } from "express";
 
-export const getAllPurchases = async (req: any, res: any) => {
+export const getAllPurchases = async (req: Request, res: Response) => {
    try {
       const purchases = await ShoppingModel.findAll();
       if (purchases) {
@@ -16,11 +17,11 @@ export const getAllPurchases = async (req: any, res: any) => {
    }
 };
 
-export const getPurchase = (req: any, res: any) => {
+export const getPurchase = (req: Request, res: Response) => {
    res.status(200).json({ message: "Holaaaaaaaaa" });
 };
 
-export const createPurchase = async (req: any, res: any) => {
+export const createPurchase = async (req: Request, res: Response) => {
    try {
       const { email, name, ci, price, cellphone, products } = req.body;
       let sendPurchase = await ShoppingModel.create({
@@ -41,7 +42,7 @@ export const createPurchase = async (req: any, res: any) => {
    }
 };
 
-export const editPurchase = async (req: any, res: any) => {
+export const editPurchase = async (req: Request, res: Response) => {
    try {
       const { id } = req.params;
 
@@ -78,7 +79,7 @@ export const editPurchase = async (req: any, res: any) => {
    }
 };
 
-export const deletePurchase = async (req: any, res: any) => {
+export const deletePurchase = async (req: Request, res: Response) => {
    try {
       const { id } = req.params;
       console.log(id);

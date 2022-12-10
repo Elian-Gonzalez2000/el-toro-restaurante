@@ -1,6 +1,7 @@
 var nodemailer = require("nodemailer");
+import { Request, Response } from "express";
 
-export const sendEmail = (req: any, res: any) => {
+export const sendEmail = (req: Request, res: Response) => {
    const { name, price, email, cellphone, ci, products } = req.body;
 
    var transporter = nodemailer.createTransport({

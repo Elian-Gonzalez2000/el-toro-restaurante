@@ -1,6 +1,7 @@
 const { AuthModel } = require("../../db/models/auth");
+import { Request, Response } from "express";
 
-export const getAllUsers = async (req: any, res: any) => {
+export const getAllUsers = async (req: Request, res: Response) => {
    try {
       const users = await AuthModel.findAll();
       if (users) {
@@ -16,7 +17,7 @@ export const getAllUsers = async (req: any, res: any) => {
    }
 };
 
-export const getUserByName = async (req: any, res: any) => {
+export const getUserByName = async (req: Request, res: Response) => {
    const { useremail } = req.params;
    try {
       const user = await AuthModel.findAll({
@@ -43,7 +44,7 @@ export const getUserByName = async (req: any, res: any) => {
    }
 };
 
-export const signin = async (req: any, res: any) => {
+export const signin = async (req: Request, res: Response) => {
    try {
       const { email, password } = req.body;
       //console.log(email, password);
@@ -106,7 +107,7 @@ export const signin = async (req: any, res: any) => {
    }
 };
 
-export const signup = async (req: any, res: any) => {
+export const signup = async (req: Request, res: Response) => {
    try {
       const { firstName, lastName, identificationCard, email, password, role } =
          req.body;
@@ -171,7 +172,7 @@ export const signup = async (req: any, res: any) => {
    }
 };
 
-export const getUserByEmail = async (req: any, res: any) => {
+export const getUserByEmail = async (req: Request, res: Response) => {
    const { useremail } = req.params;
    try {
       const user = await AuthModel.findAll({
@@ -198,7 +199,7 @@ export const getUserByEmail = async (req: any, res: any) => {
    }
 };
 
-export const editUserByEmail = async (req: any, res: any) => {
+export const editUserByEmail = async (req: Request, res: Response) => {
    const { useremail } = req.params;
    const { firstName, lastName, identificationCard, email, password, role } =
       req.body;
@@ -236,7 +237,7 @@ export const editUserByEmail = async (req: any, res: any) => {
    }
 };
 
-export const deleteUserByEmail = async (req: any, res: any) => {
+export const deleteUserByEmail = async (req: Request, res: Response) => {
    const { useremail } = req.params;
 
    try {
